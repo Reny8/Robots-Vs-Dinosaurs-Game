@@ -1,2 +1,6 @@
 class Fleet:
-    pass
+    def __init__(self):
+        self.robots = []
+    
+    def create_fleet(self):
+        pass
