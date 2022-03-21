@@ -22,16 +22,13 @@ class Battlefield:
 
     def show_dino_opponent_options(self):
         self.fleet.create_fleet()
-        for robots in self.fleet.robots:
-            print(robots.name)
-        self.opponent = input("Choose your opponent: ")
+        print("Robot Opponents")
+        for robo in self.fleet.robots:
+            print(f"Name: {robo.name}, Health: {robo.health}")
     def show_robo_opponent_options(self):
+        print("Dino Opponents")
         self.herd.create_herd()
         for dino in self.herd.dinosaurs:
-            print(dino.name)
-        self.opponent = input("Choose your opponent: ")
+            print(f"Name: {dino.name}, Health: {dino.health}")
     def display_winners(self):
         pass
-
-battle = Battlefield()
-battle.show_dino_opponent_options()
