@@ -10,4 +10,5 @@ class Fleet:
         self.robots.append(robot_1)
         self.robots.append(robot_2)
         self.robots.append(robot_3)
+        
 

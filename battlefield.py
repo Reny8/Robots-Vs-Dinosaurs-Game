@@ -21,10 +21,15 @@ class Battlefield:
         pass
 
     def show_dino_opponent_options(self):
-        pass
-
+        self.fleet.create_fleet()
+        for robots in self.fleet.robots:
+            print(robots.name)
+        opponent = input("Choose your opponent: ")
     def show_robo_opponent_options(self):
         pass
 
     def display_winners(self):
         pass
+
+battle = Battlefield()
+battle.show_dino_opponent_options()
