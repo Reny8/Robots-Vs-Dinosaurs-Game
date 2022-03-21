@@ -1,2 +1,5 @@
 class Weapon:
-    pass
+    def __init__(self,name,attack_power):
+        self.name = name
+        self.attack_power = attack_power
+weapons = Weapon("Reny",100)
