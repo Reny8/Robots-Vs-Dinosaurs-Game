@@ -24,10 +24,12 @@ class Battlefield:
         self.fleet.create_fleet()
         for robots in self.fleet.robots:
             print(robots.name)
-        opponent = input("Choose your opponent: ")
+        self.opponent = input("Choose your opponent: ")
     def show_robo_opponent_options(self):
-        pass
-
+        self.herd.create_herd()
+        for dino in self.herd.dinosaurs:
+            print(dino.name)
+        self.opponent = input("Choose your opponent: ")
     def display_winners(self):
         pass
 
