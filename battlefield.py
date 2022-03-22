@@ -17,13 +17,11 @@ class Battlefield:
 
     def dino_turn(self):
         self.show_robo_opponent_options()
-        input("Choose your Dinosaur: ")
+        dino_index = int(input("Choose your Dinosaur: "))
     
         self.show_dino_opponent_options()
-        attack_robot = input("Choose the Robot you want to attack: ")
-        for robot in self.fleet.robots:
-            if attack_robot == self.fleet.robots:
-                print(self.herd.dinosaurs.attack_robot(attack_robot))
+        robot_index = int(input("Choose the Robot you want to attack: "))
+        self.herd.dinosaurs[dino_index].attack_robot(self.fleet.robots[robot_index])
 
 
     def robo_turn(self):
