@@ -1,5 +1,6 @@
 from fleet import Fleet
 from herd import Herd
+import random
 class Battlefield:
     def __init__(self):
         self.fleet = Fleet()
@@ -22,13 +23,11 @@ class Battlefield:
 
     def show_dino_opponent_options(self):
         self.fleet.create_fleet()
-        print("Robot Opponents")
         for robo in self.fleet.robots:
-            print(f"Name: {robo.name}, Health: {robo.health}")
+            print(f"Robot: {robo.name}, Weapon Attack Power: {robo.weapon.attack_power}, Health: {robo.health}")
     def show_robo_opponent_options(self):
-        print("Dino Opponents")
         self.herd.create_herd()
         for dino in self.herd.dinosaurs:
-            print(f"Name: {dino.name}, Health: {dino.health}")
+            print(f"Dinosaur: {dino.name}, Attack Power: {dino.attack_power}, Health: {dino.health}")
     def display_winners(self):
         pass
