@@ -39,6 +39,9 @@ class Battlefield:
     def robo_turn(self):
         self.show_dino_opponent_options()
         robot_index = int(input("Choose your Robot: "))
+        weapon_change = input("Would you like to change your default weapon? ")
+        if weapon_change == "yes":
+            self.fleet.robots[robot_index].choose_weapon()
         self.show_robo_opponent_options()
         dino_index = int(input("Choose the Dinosaur you want to attack: "))
         self.fleet.robots[robot_index].attack_dinosaur(self.herd.dinosaurs[dino_index])
