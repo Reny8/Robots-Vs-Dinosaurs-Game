@@ -18,7 +18,6 @@ class Battlefield:
     def dino_turn(self):
         self.show_robo_opponent_options()
         dino_index = int(input("Choose your Dinosaur: "))
-    
         self.show_dino_opponent_options()
         robot_index = int(input("Choose the Robot you want to attack: "))
         self.herd.dinosaurs[dino_index].attack_robot(self.fleet.robots[robot_index])
@@ -26,10 +25,10 @@ class Battlefield:
 
     def robo_turn(self):
         self.show_dino_opponent_options()
-        robo_choice = input("Choose your Robot: ")
-
+        robot_index = int(input("Choose your Robot: "))
         self.show_robo_opponent_options()
-        chosen_dino_to_attack = input("Choose the Dinosaur you want to attack: ")
+        dino_index = int(input("Choose the Dinosaur you want to attack: "))
+        self.fleet.robots[robot_index].attack_dinosaur(self.herd.dinosaurs[dino_index])
 
 
     def show_dino_opponent_options(self):
@@ -49,3 +48,4 @@ class Battlefield:
 
 battle = Battlefield()
 battle.dino_turn()
+battle.robo_turn()
