@@ -33,7 +33,7 @@ class Battlefield:
         self.herd.dinosaurs[dino_index].attack_robot(self.fleet.robots[robot_index])
         if self.fleet.robots[robot_index].health <= 0:
             print(f"Your have killed {self.fleet.robots[robot_index].name}!")
-        
+            self.fleet.robots.remove(robot_index)
             
 
     def robo_turn(self):
