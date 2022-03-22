@@ -8,12 +8,18 @@ class Battlefield:
     
     def run_game(self):
         self.display_welcome()
-        # NOT DONE WITH YET
+        self.battle()
+
     def display_welcome(self):
         print("Welcome to Robots vs Dinosaurs! ")
-        
+
     def battle(self):
-        pass
+        turns = [self.dino_turn, self.robo_turn]
+        game_not_over = True
+        while game_not_over:
+            random.choice(turns)()
+            
+
 
     def dino_turn(self):
         self.show_robo_opponent_options()
@@ -45,7 +51,3 @@ class Battlefield:
 
     def display_winners(self):
         pass
-
-battle = Battlefield()
-battle.dino_turn()
-battle.robo_turn()
