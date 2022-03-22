@@ -17,8 +17,8 @@ class Battlefield:
         turns = [self.dino_turn, self.robo_turn]
         game_not_over = True
         while game_not_over:
-            random.choice(turns)()
-            
+            self.robo_turn()
+            # random.choice(turns)()
 
 
     def dino_turn(self):
@@ -27,7 +27,10 @@ class Battlefield:
         self.show_dino_opponent_options()
         robot_index = int(input("Choose the Robot you want to attack: "))
         self.herd.dinosaurs[dino_index].attack_robot(self.fleet.robots[robot_index])
-
+        if self.fleet.robots[robot_index].health == 0:
+            print(f"Your have killed {self.fleet.robots[robot_index].name}!")
+        
+            
 
     def robo_turn(self):
         self.show_dino_opponent_options()
@@ -35,7 +38,9 @@ class Battlefield:
         self.show_robo_opponent_options()
         dino_index = int(input("Choose the Dinosaur you want to attack: "))
         self.fleet.robots[robot_index].attack_dinosaur(self.herd.dinosaurs[dino_index])
-
+        if self.herd.dinosaurs[dino_index].health == 0:
+            print(f"You have killed {self.herd.dinosaurs[dino_index].name}! ")
+            self.herd.dinosaurs.pop(dino_index)
 
     def show_dino_opponent_options(self):
         self.fleet.create_fleet()
@@ -51,3 +56,5 @@ class Battlefield:
 
     def display_winners(self):
         pass
+battle = Battlefield()
+battle.robo_turn()
