@@ -17,10 +17,14 @@ class Battlefield:
 
     def dino_turn(self):
         self.show_robo_opponent_options()
-        dino_choice = input("Choose your Dinosaur: ")
-
+        input("Choose your Dinosaur: ")
+    
         self.show_dino_opponent_options()
-        chosen_robot_to_attack = input("Choose the Robot you want to attack: ")
+        attack_robot = input("Choose the Robot you want to attack: ")
+        for robot in self.fleet.robots:
+            if attack_robot == self.fleet.robots:
+                print(self.herd.dinosaurs.attack_robot(attack_robot))
+
 
     def robo_turn(self):
         self.show_dino_opponent_options()
@@ -41,5 +45,9 @@ class Battlefield:
         print(f"Type 0 for: {self.herd.dinosaurs[0].name}, Health: {self.herd.dinosaurs[0].health}")
         print(f"Type 1 for: {self.herd.dinosaurs[1].name}, Health: {self.herd.dinosaurs[1].health}")
         print(f"Type 2 for: {self.herd.dinosaurs[2].name}, Health: {self.herd.dinosaurs[2].health}")
+
     def display_winners(self):
         pass
+
+battle = Battlefield()
+battle.dino_turn()
