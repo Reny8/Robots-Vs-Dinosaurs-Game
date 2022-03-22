@@ -16,10 +16,14 @@ class Battlefield:
     def battle(self):
         turns = [self.dino_turn, self.robo_turn]
         game_not_over = True
-        while game_not_over:
-            self.robo_turn()
-            # random.choice(turns)()
-
+        while game_not_over == True:
+            random.choice(turns)()
+            if self.fleet.robots == []:
+                self.display_winners("Dinosaurs")
+                game_not_over = False
+            elif self.herd.dinosaurs == []:
+                self.display_winners("Robots")
+                game_not_over = False
 
     def dino_turn(self):
         self.show_robo_opponent_options()
@@ -27,7 +31,7 @@ class Battlefield:
         self.show_dino_opponent_options()
         robot_index = int(input("Choose the Robot you want to attack: "))
         self.herd.dinosaurs[dino_index].attack_robot(self.fleet.robots[robot_index])
-        if self.fleet.robots[robot_index].health == 0:
+        if self.fleet.robots[robot_index].health <= 0:
             print(f"Your have killed {self.fleet.robots[robot_index].name}!")
         
             
@@ -38,9 +42,9 @@ class Battlefield:
         self.show_robo_opponent_options()
         dino_index = int(input("Choose the Dinosaur you want to attack: "))
         self.fleet.robots[robot_index].attack_dinosaur(self.herd.dinosaurs[dino_index])
-        if self.herd.dinosaurs[dino_index].health == 0:
+        if self.herd.dinosaurs[dino_index].health <= 0:
             print(f"You have killed {self.herd.dinosaurs[dino_index].name}! ")
-            self.herd.dinosaurs.pop(dino_index)
+            self.herd.dinosaurs.remove(dino_index)
 
     def show_dino_opponent_options(self):
         self.fleet.create_fleet()
@@ -54,7 +58,8 @@ class Battlefield:
         print(f"Type 1 for: {self.herd.dinosaurs[1].name}, Health: {self.herd.dinosaurs[1].health}")
         print(f"Type 2 for: {self.herd.dinosaurs[2].name}, Health: {self.herd.dinosaurs[2].health}")
 
-    def display_winners(self):
-        pass
+    def display_winners(self, winning_team):
+        print(f"{winning_team} have won the fight! Game over. ")
+
 battle = Battlefield()
-battle.robo_turn()
+battle.battle()
