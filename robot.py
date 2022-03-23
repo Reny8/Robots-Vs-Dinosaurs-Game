@@ -19,10 +19,10 @@ class Robot:
         weapon_choice = int(input("Choose a weapon for your Robot: "))
         if weapon_choice == 0:
             self.weapon = Weapon("Grenades", 40)
-            print("Your new weapon is Grenades! ")
+            print("Your weapon choice is Grenades! ")
         elif weapon_choice == 1:
             self.weapon = Weapon("Lethal Darts",60)
-            print("Cool! Your new weapon is Lethal Darts! ")
+            print("Cool! Your weapon choice is Lethal Darts! ")
         elif weapon_choice == 2:
             self.weapon = Weapon("Lasers", 20)
-            print("Your weapon will remain the same. ")
+            print("Your weapon choice is Lasers. ")
